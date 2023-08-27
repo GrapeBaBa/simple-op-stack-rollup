@@ -46,6 +46,15 @@ install_dev_dependencies() {
     else
         echo "ruff is installed"
     fi
+
+    # Check if autopep8 is installed, otherwise install it
+    if ! command -v autopep8 &> /dev/null
+    then
+        echo "autopep8 could not be found, installing it now"
+        pip3 install --upgrade autopep8
+    else
+        echo "autopep8 is installed"
+    fi
 }
 
 check_python_version
